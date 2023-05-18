@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block title %}
+<title>代辦檢視</title>
+{% endblock %} {% block content %}
+<h1>VIEWTODO</h1>
+<small>建立日期:{{todo.created}}</small>
+<h2>{{todo.title}}</h2>
+<ul>
+  <li>重要:{% if todo.important %}
+    是{% else %}否{% endif %}</li>
+    {{todo.important}}</li>
+  <li>細項:{{todo.text}}</li>
+  <li>完成時間:
+    {% if todo.date_completed %}
+    {{todo.date_completed}}
+    {% endif %}
+</li>
+</ul>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name="update" value="更新">
+  <input type="submit" name="delete" value="刪除">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}
+<title>已完成項目</title>
+{% endblock %} {% block content %}
+<h1>Completed</h1>
+<ul>
+  {% for todo in todos %} {% if todo.completed %}
+  <li>
+    <small>{{todo..date_completed}}</small><br />
+    <a href="{% url 'viewtodo' todo.id %}"
+      >{% if todo.completed %} {{todo.title}}
+    </a>
+    {% endif %}
+  </li>
+  {% endif %} {% endfor %}
+</ul>
+{% endblock %}
